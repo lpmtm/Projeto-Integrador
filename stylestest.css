@@ -11,7 +11,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 235px 120px 120px 120px;
+
+    padding: 0 120px 0px 120px;
 }
 
 header {
@@ -28,27 +29,31 @@ header {
     z-index: 1000;
     }
 
-nav {
+#menu nav {
     position: fixed;
     top: 95px;
     left: 0;
     width: 100%;
     background-color: #222;
-    padding: 10px 0;
+    padding: 0 40px;
     text-align: center;
     z-index: 1000;
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 10px;
     background: #444;
     
 }
 
-nav a {
+#menu nav a:hover {
+    background-color: #333;
+}
+
+#menu nav a {
+    font-size: large;
     color: white;
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 18px 40px;
 }
 
 
@@ -58,6 +63,10 @@ nav a {
     justify-content: center;
     text-align: center;
     padding-bottom: 100px;
+}
+
+#sobre{
+    padding-top: 244px;
 }
 
 #sobre .container {
@@ -87,28 +96,33 @@ p{
 
 .imagem img {
     /* Define um tamanho fixo inicial, mas permite ajuste */ /* Mantém a imagem com largura controlada */
-    margin: 20px;
+    margin: 0 20px 20px 20px;
     float: right;
     position: static;
     height: 222px;
     width: 333px;
+    border-radius: 2%;
 
 
 }
 
 
-
+#catalogo{
+    padding-top: 200px;
+}
 
 
 #titulo-catalogo{
-    margin: 100px 0 100px 0;
+    margin: 0 0;
     font-family: "Poppins", sans-serif;
     font-size: 200%;
     justify-content: center;
     text-align: center;
+    padding-bottom: 50px;
 }
 
 #catalogo {
+
     display: block;
     flex-wrap: wrap;
     justify-content: center;
@@ -128,8 +142,12 @@ p{
   
 }
 
-#titulo-contato{
-    margin: 100px 0 100px 0;
+#entrar{
+    padding-top:100px;
+}
+
+#titulo-entrar{
+    margin: 0 0 100px 0;
     font-family: "Poppins", sans-serif;
     font-size: 200%;
     justify-content: center;
@@ -156,3 +174,75 @@ button {
     margin: 5px 0;
     padding: 10px;
 }
+
+button:hover{
+    cursor: pointer;
+    background-color: #333;
+}
+
+
+#div-rodape{
+    text-align: center;
+    margin-top: 100px;
+    height: 250px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+#div-rodape nav ul li{
+    justify-content: space-around;
+ 
+    list-style: none;
+
+  
+}
+
+#div-rodape nav ul li a{
+
+    float: left;
+    font-size: 20px;
+   
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+
+footer {
+    margin-top: 300px;
+    background-color: #333;
+    color: #ddd;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
