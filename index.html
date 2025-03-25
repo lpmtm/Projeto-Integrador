@@ -10,11 +10,13 @@
     <header>
         <h1>Site de Tecnologia</h1>
     </header>
-    <nav>
-        <a href="#sobre">Sobre Nós</a>
-        <a href="#catalogo">Catálogo</a>
-        <a href="#contato">Contato</a>
-    </nav>
+    <section id="menu">
+        <nav>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#entrar">Contato</a>
+        </nav>
+    </section>
     
     <section id="sobre">
         <h2 class="titulo-sobrenos">Sobre Nós</h2>
@@ -55,24 +57,51 @@
                 </div>
         </div>
     </section>
-
     
+    <section id="catalogo">
         <br><h2 id="titulo-catalogo">Catálogo de Áreas</h2>
-        <div id="catalogo">
+        <div id="div-catalogo">
             <div class="card">Desenvolvimento Web</div>
             <div class="card">Inteligência Artificial</div>
             <div class="card">Segurança da Informação</div>
             <div class="card">Ciência de Dados</div>
         </div>
-        
     </section>
-    <section id="titulo-contato">
-        <h2>Entrar</h2>
+    
+   
+    <section id="entrar">
+        <h2 id="titulo-entrar">Entrar</h2>
         <div class="form-container">
             <input type="email" placeholder="Digite seu email">
             <input type="password" placeholder="Crie uma senha">
             <button>Enviar</button>
         </div>
+    </section>
+
+    <section id="rodape">
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Política de privacidade</h3>
+                    <p>&copy; 2025 Site de tecnologia | Todos os direitos reservados.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#catalogo">Catalogo</a></li>
+                        <li><a href="#entrar">Entrar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <a href="#">Facebook</a> | 
+                    <a href="#">Twitter</a> | 
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </footer>
+        
     </section>
 </body>
 </html>
