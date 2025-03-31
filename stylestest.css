@@ -195,11 +195,11 @@ p{
 }
 
 #entrar{
-    padding-top:100px;
+    padding-top:200px;
 }
 
 #titulo-entrar{
-    margin: 0 0 100px 0;
+    margin: 0 0 70px 0;
     font-family: "Poppins", sans-serif;
     font-size: 200%;
     justify-content: center;
@@ -297,4 +297,3 @@ ul {
     list-style: none;
     padding: 0;
 }
-
