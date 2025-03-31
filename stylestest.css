@@ -8,12 +8,14 @@
 }
 
 
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-
-    padding: 0 120px 0px 120px;
+    background: #f4f4f4;
+    padding: 0 160px 0px 160px;
 }
+
 
 header {
     font-family: "Chakra Petch", sans-serif;
@@ -91,6 +93,7 @@ p{
    text-align: justify;
    text-indent: 35px;
    margin-bottom: 10px;
+   font-size: 20px;
 }
 
 
@@ -129,7 +132,10 @@ p{
     gap: 20px;
 }
 
-.card {
+.card a{
+
+    display:grid;
+    text-decoration: none;
     color: rgb(236, 236, 236);
     background-color: #444;
     text-align: center;
@@ -138,8 +144,54 @@ p{
     border: 1px solid #ccc;
     border-radius: 8px;
     margin: 40px 350px 40px 350px;
+    font-family: "Poppins", sans-serif;
+    font-size: 125%;
+    box-shadow:  0 0 25px 10px rgba(0, 0, 0, 0.2);
 
   
+}
+
+.sub-tc{
+    margin: 0 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#dw{
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#ia{
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#si{
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#cd{
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.curso {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.curso p {
+    color: #444;
+    line-height: 1.6;
 }
 
 #entrar{
