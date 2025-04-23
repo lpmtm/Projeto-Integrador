@@ -1,0 +1,22 @@
+{
+  "name": "iniciando_express",
+  "version": "1.0.0",
+  "description": "iniciando express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmelo1/modelo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianmelo1/modelo/issues"
+  },
+  "homepage": "https://github.com/ianmelo1/modelo#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
