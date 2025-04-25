@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -29,7 +29,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    }
+}
 
 #menu nav {
     position: fixed;
@@ -44,7 +44,7 @@ header {
     justify-content: center;
     gap: 20px;
     background: #444;
-    
+
 }
 
 #menu nav a:hover {
@@ -59,7 +59,7 @@ header {
 }
 
 
-.titulo-sobrenos{
+.titulo-sobrenos {
     font-family: "Poppins", sans-serif;
     font-size: 200%;
     justify-content: center;
@@ -67,38 +67,40 @@ header {
     padding-bottom: 100px;
 }
 
-#sobre{
+#sobre {
     padding-top: 244px;
 }
 
 #sobre .container {
-    
+
     /* Permite que os elementos quebrem linha */
     gap: 20px;
     align-items: flex-start;
-    
+
 }
 
 
 
 #sobre .texto {
-    flex: 1 1 60%; /* Ocupa 60% da largura da tela, mas pode diminuir */
+    flex: 1 1 60%;
+    /* Ocupa 60% da largura da tela, mas pode diminuir */
     font-family: "Poppins", sans-serif;
     font-size: large;
     min-width: 300px;
     /* Evita que o texto fique muito pequeno antes de quebrar */
 }
 
-p{
-   text-align: justify;
-   text-indent: 35px;
-   margin-bottom: 10px;
-   font-size: 20px;
+p {
+    text-align: justify;
+    text-indent: 35px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 
 .imagem img {
-    /* Define um tamanho fixo inicial, mas permite ajuste */ /* Mantém a imagem com largura controlada */
+    /* Define um tamanho fixo inicial, mas permite ajuste */
+    /* Mantém a imagem com largura controlada */
     margin: 0 20px 20px 20px;
     float: right;
     position: static;
@@ -110,12 +112,12 @@ p{
 }
 
 
-#catalogo{
+#catalogo {
     padding-top: 200px;
 }
 
 
-#titulo-catalogo{
+#titulo-catalogo {
     margin: 0 0;
     font-family: "Poppins", sans-serif;
     font-size: 200%;
@@ -132,9 +134,9 @@ p{
     gap: 20px;
 }
 
-.card a{
+.card a {
 
-    display:grid;
+    display: grid;
     text-decoration: none;
     color: rgb(236, 236, 236);
     background-color: #444;
@@ -146,12 +148,12 @@ p{
     margin: 40px 350px 40px 350px;
     font-family: "Poppins", sans-serif;
     font-size: 125%;
-    box-shadow:  0 0 25px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.2);
 
-  
+
 }
 
-.sub-tc{
+.sub-tc {
     margin: 0 0;
     font-family: "Poppins", sans-serif;
     font-size: 200%;
@@ -160,22 +162,22 @@ p{
     padding-bottom: 50px;
 }
 
-#dw{
+#dw {
     padding-top: 200px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-#ia{
+#ia {
     padding-top: 200px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-#si{
+#si {
     padding-top: 200px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-#cd{
+#cd {
     padding-top: 200px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
@@ -194,46 +196,53 @@ p{
     line-height: 1.6;
 }
 
-#entrar{
-    padding-top:200px;
+#entrar {
+    padding-top: 200px;
 }
 
-#titulo-entrar{
+#titulo-entrar {
     margin: 0 0 70px 0;
     font-family: "Poppins", sans-serif;
     font-size: 200%;
     justify-content: center;
-    text-align: center;;
+    text-align: center;
+    ;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
+
+
+form {
+    display: block;
+    max-width: 400px;
     margin: auto;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
 }
 
-input{
-  
+input {
+    display: block;
     margin: 5px 0;
     padding: 10px;
+    width: 300px;
 
 }
 
 button {
     background-color: #444;
     color: rgb(236, 236, 236);
+    width: 300px;
     margin: 5px 0;
     padding: 10px;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
     background-color: #333;
 }
 
 
-#div-rodape{
+.div-rodape {
     text-align: center;
     margin-top: 100px;
     height: 250px;
@@ -243,19 +252,19 @@ button:hover{
     background-color: #333;
 }
 
-#div-rodape nav ul li{
+.div-rodape nav ul li {
     justify-content: space-around;
- 
+
     list-style: none;
 
-  
+
 }
 
-#div-rodape nav ul li a{
+.div-rodape nav ul li a {
 
     float: left;
     font-size: 20px;
-   
+
     display: block;
     text-decoration: none;
     color: white;
@@ -296,4 +305,65 @@ footer {
 ul {
     list-style: none;
     padding: 0;
+}
+
+
+body #dois {
+    display: flex;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    width: 220px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar nav {
+    list-style: none;
+
+}
+
+
+
+.sidebar nav a {
+    display: block;
+    padding: 15px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar nav :hover {
+    background-color: #1f1f1f;
+}
+
+
+.main-content {
+    margin-left: 220px;
+    padding: 30px;
+    flex: 1;
+    background-color: #ecf0f1;
+    min-height: 100vh;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
 }
