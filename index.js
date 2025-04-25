@@ -7,7 +7,7 @@ app.get("/", (req,res)=>{
     res.send("Bem vindo ao meu site");
 })
 
-app.listen(4000,function(erro){
+app.listen(3000,function(erro){
     if(erro){
         console.log("Ocorreu um erro");
     }else{

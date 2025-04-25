@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    padding: 0 160px 0px 160px;
+}
+
+
+header {
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#menu nav {
+    position: fixed;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 0 40px;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #444;
+
+}
+
+#menu nav a:hover {
+    background-color: #333;
+}
+
+#menu nav a {
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    padding: 18px 40px;
+}
+
+
+.titulo-sobrenos {
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+#sobre {
+    padding-top: 244px;
+}
+
+#sobre .container {
+
+    /* Permite que os elementos quebrem linha */
+    gap: 20px;
+    align-items: flex-start;
+
+}
+
+
+
+#sobre .texto {
+    flex: 1 1 60%;
+    /* Ocupa 60% da largura da tela, mas pode diminuir */
+    font-family: "Poppins", sans-serif;
+    font-size: large;
+    min-width: 300px;
+    /* Evita que o texto fique muito pequeno antes de quebrar */
+}
+
+p {
+    text-align: justify;
+    text-indent: 35px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+
+.imagem img {
+    /* Define um tamanho fixo inicial, mas permite ajuste */
+    /* Mantém a imagem com largura controlada */
+    margin: 0 20px 20px 20px;
+    float: right;
+    position: static;
+    height: 222px;
+    width: 333px;
+    border-radius: 2%;
+
+
+}
+
+
+#catalogo {
+    padding-top: 200px;
+}
+
+
+#titulo-catalogo {
+    margin: 0 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#catalogo {
+
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card a {
+
+    display: grid;
+    text-decoration: none;
+    color: rgb(236, 236, 236);
+    background-color: #444;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 40px 350px 40px 350px;
+    font-family: "Poppins", sans-serif;
+    font-size: 125%;
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.2);
+
+
+}
+
+.sub-tc {
+    margin: 0 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#dw {
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#ia {
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#si {
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#cd {
+    padding-top: 200px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.curso {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.curso p {
+    color: #444;
+    line-height: 1.6;
+}
+
+#entrar {
+    padding-top: 200px;
+}
+
+#titulo-entrar {
+    margin: 0 0 70px 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    text-align: center;
+    ;
+}
+
+
+
+form {
+    display: block;
+    max-width: 400px;
+    margin: auto;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+input {
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+    width: 300px;
+
+}
+
+button {
+    background-color: #444;
+    color: rgb(236, 236, 236);
+    width: 300px;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+
+.div-rodape {
+    text-align: center;
+    margin-top: 100px;
+    height: 250px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+.div-rodape nav ul li {
+    justify-content: space-around;
+
+    list-style: none;
+
+
+}
+
+.div-rodape nav ul li a {
+
+    float: left;
+    font-size: 20px;
+
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+
+footer {
+    margin-top: 300px;
+    background-color: #333;
+    color: #ddd;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+body #dois {
+    display: flex;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    width: 220px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar nav {
+    list-style: none;
+
+}
+
+
+
+.sidebar nav a {
+    display: block;
+    padding: 15px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar nav :hover {
+    background-color: #1f1f1f;
+}
+
+
+.main-content {
+    margin-left: 220px;
+    padding: 30px;
+    flex: 1;
+    background-color: #ecf0f1;
+    min-height: 100vh;
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+}
