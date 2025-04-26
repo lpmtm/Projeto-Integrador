@@ -1,16 +1,25 @@
 const express = require("express");
+const path = require("path");
 const app = express();
+const bodyParser = require("body-parser");
 
 app.set('view engine', 'ejs');
 
-app.get("/", (req,res)=>{
-    res.send("Bem vindo ao meu site");
-})
+app.set('views', path.join(__dirname, 'views'));
 
-app.listen(3000,function(erro){
-    if(erro){
+app.use(express.static('public'));
+
+app.use(bodyParser.urlencoded({extendes: false}));
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+    res.render("index"); 
+});
+
+app.listen(8080, function (erro) {
+    if (erro) {
         console.log("Ocorreu um erro");
-    }else{
-        console.log("Iniciando servidor");
+    } else {
+        console.log("Servidor rodando");
     }
-})
+});
