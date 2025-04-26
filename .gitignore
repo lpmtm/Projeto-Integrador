@@ -1,0 +1,15 @@
+# Ignore a pasta node_modules (bibliotecas instaladas)
+node_modules/
+
+# Ignore arquivos do VSCode
+.vscode/
+
+# Ignore arquivos de log
+*.log
+
+# Ignore a pasta de build (caso tenha)
+dist/
+
+# Ignore arquivos temporários de sistema
+.DS_Store  # (Para Mac)
+Thumbs.db  # (Para Windows)
