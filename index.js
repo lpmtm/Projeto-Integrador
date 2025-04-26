@@ -10,6 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
 
+//conexão das views com o codigo principal
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
     res.render("index"); 
 });
 
+//conexão com localhost
 app.listen(8080, function (erro) {
     if (erro) {
         console.log("Ocorreu um erro");
