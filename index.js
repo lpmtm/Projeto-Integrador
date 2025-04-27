@@ -2,7 +2,10 @@ const express = require("express"); // iniciando express
 const path = require("path"); // adicionando path
 const bodyParser = require("body-parser"); // fazendo a conexão com a pasta public
 const connection = require("./database/database"); // conexão com banco de dados
-
+const courseController = require("./courses/CourseController");
+const boletimController = require("./boletins/BoletimController");
+const Boletim = require("./boletins/Boletim");
+const Course = require("./courses/Course");
 const app = express();
 
 app.set('view engine', 'ejs'); 
@@ -12,6 +15,10 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use("/",courseController);
+app.use("/", boletimController);
+
 
 connection.authenticate()
     .then(() => {
