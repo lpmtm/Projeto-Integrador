@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,23 +7,46 @@
     <title>Área do aluno</title>
     <link rel="stylesheet" href="stylestest.css">
 </head>
-<div class="sidebar">
-    <h2>Aluno</h2>
-    <nav>
-        
+
+<body class="header-dois">
+    <header id="header-dois">
+        <h1>Página do aluno</h1>
+    </header>
+
+    <div class="sidebar">
+        <h2>Aluno</h2>
+        <nav>
             <a href="#perfil">Perfil</a>
-            <a href="#Boletim">Boletim</a>
+            <a href="boletim.html">Boletim</a>
             <a href="#Frequência">Frequência</a>
             <a href="#Matérias">Matérias</a>
             <a href="index.html">Sair</a>
-        
-    </nav>
-</div>
+        </nav>
+    </div>
+<div id="container-perfil">
+    <div id="dados-usuario">
 
-<header id="perfil">
-    Página do aluno
-</header>
+    </div>
+</div>
+    <!-- JavaScript para buscar e mostrar o email e senha -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const email = localStorage.getItem('email');
+            const password = localStorage.getItem('password');
+
+            const dadosUsuario = document.getElementById('dados-usuario');
+            if (email && password) {
+                dadosUsuario.innerHTML = `
+                    <p><strong>Endereço de e-mail:</strong> ${email}</p>
+                    <p><strong>Senha de acesso:</strong> ${maskedPassword}</p>
+                `;
+            } else {
+                dadosUsuario.innerHTML = `<p>Desculpe, não conseguimos localizar seus dados de usuário.</p>`;
+            }
+        });
+    </script>
 
 
 </body>
-</html>
+
+</html>|

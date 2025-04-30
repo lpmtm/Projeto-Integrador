@@ -6,16 +6,39 @@
     <title>Login</title>
     <link rel="stylesheet" href="stylestest.css">
 </head>
-<body>
-    <section id="entrar">
-        <header>
-            <h1>Login</h1>
-        </header>
-        <form action="segundapg.html" method="get">
-            <input input type="email" id="email" name="email" placeholder="Digite o seu email" required>
-            <input type="Password" id="Password" name="Password" placeholder="Digite a sua senha" required>
-            <button>Entrar</button>
-        </form>
-    </section>
+<body class="body-um">
+
+<section id="entrar">
+    <header class="header-um">
+        <h1>Login</h1>
+    </header>
+
+    <form id="formLogin"> <!-- Sem action e method -->
+        <input type="email" id="email" name="email" placeholder="Digite o seu email" required>
+        <input type="password" id="password" name="password" placeholder="Digite a sua senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('formLogin');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Bloqueia o envio padrão do formulário
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Salva no localStorage
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        // Redireciona para a segunda página
+        window.location.href = 'segundapg.html';
+    });
+});
+</script>
+
 </body>
 </html>

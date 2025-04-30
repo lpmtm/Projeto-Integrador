@@ -9,7 +9,7 @@
 
 
 
-body {
+.body-um {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f4f4f4;
@@ -17,7 +17,7 @@ body {
 }
 
 
-header {
+.header-um {
     font-family: "Chakra Petch", sans-serif;
     background: #333;
     color: white;
@@ -100,7 +100,7 @@ p {
 
 .imagem img {
     /* Define um tamanho fixo inicial, mas permite ajuste */
-    /* Mantém a imagem com largura controlada */
+    /* MantÃ©m a imagem com largura controlada */
     margin: 0 20px 20px 20px;
     float: right;
     position: static;
@@ -194,6 +194,19 @@ p {
 .curso p {
     color: #444;
     line-height: 1.6;
+}
+
+.materia-index{
+    padding: 20px 0px;
+    margin: 10px 390px;
+    color: #ddd;
+    border: #222;
+    border-radius: 10px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #5c5c5c;
+
 }
 
 #entrar {
@@ -308,12 +321,23 @@ ul {
 }
 
 
-body #dois {
-    display: flex;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
+
+#header-dois{
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+    
 }
 
+.body-dois {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
 
 .sidebar {
     font-size: large;
@@ -338,8 +362,6 @@ body #dois {
     list-style: none;
 
 }
-
-
 
 .sidebar nav a {
     display: block;
@@ -366,4 +388,42 @@ body #dois {
 
 .main-content h1 {
     margin-bottom: 20px;
+}
+
+
+
+#container-perfil{
+    padding: 83px 160px 0px 240px;
+}
+
+
+
+
+
+
+.header-boletim{
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+section.materia{
+    padding: 20px;
+    margin: 20px 200px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow:2px 2px 8px black;
+    
+  
+}
+
+.semestre{
+    background-color: #9c9c9c;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 40px;
 }
