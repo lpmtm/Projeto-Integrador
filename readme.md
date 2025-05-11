@@ -33,22 +33,22 @@ O sistema utiliza JWT para proteger rotas sensíveis, como a de visualização d
 - HTML/CSS e JavaScript no frontend
 
 ## Instalação
-```bash```
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-npm install
-npm start
+```bash```  
+git clone https://github.com/seu-usuario/seu-repositorio.git  
+cd seu-repositorio  
+npm install  
+npm start  
 
 ## Objetivo do Projeto de Pesquisa
 Este projeto foi desenvolvido como parte do Projeto Integrador na disciplina de Estrutura de Dados, com foco em aplicar conceitos de organização de dados, segurança de acesso e boas práticas de desenvolvimento web no contexto da educação.
 
 ## Integrantes
-Amanda Ferreira Dahm 
-Caroline Lopes Martins
-Eduardo Lima dos Santos
-Ian Melo Gonçalves
-Miguel Ferreira Pedroso
-Paula Ribeiro Moreira de Souza
+Amanda Ferreira Dahm  
+Caroline Lopes Martins  
+Eduardo Lima dos Santos  
+Ian Melo Gonçalves  
+Miguel Ferreira Pedroso  
+Paula Ribeiro Moreira de Souza  
 
 ## Link pelo Vercel:
 https://modelo-aqwc.vercel.app/
