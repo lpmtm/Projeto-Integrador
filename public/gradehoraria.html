@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grade</title>
+    <link rel="website icon" type="png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png">
+    <link rel="stylesheet" href="stylestest.css">
+</head>
+
+
+<body>
+    <header class="header-boletim">
+        Grade
+        <a class="sair" href="segundapg.html">Sair</a>
+    </header>
+    <table class="table table-bordered table-striped table-hover responsive" id="dynamic-table">
+        <thead>
+            <tr role="row">
+                <th class="text-center">Dia da Semana</th>
+                <th class="text-center">Curso</th>
+                <th class="text-center">Matéria</th>
+                <th class="text-center">Turma</th>
+                <th class="text-center">Horário</th>
+            </tr>
+        </thead>
+
+        <tbody id="tbody-disc">
+            <tr>
+                <td class="text-center">Segunda-Feira</td>
+                <td class="text-center" id="curso"></td>
+                <td class="text-center" id="materia-um"></td>
+                <td class="text-center" id="turma"></td>
+                <td class="text-center">
+                    08:15 - 09:30 </td>
+            </tr>
+            <tr>
+                <td class="text-center">Segunda-Feira</td>
+                <td class="text-center" id="curso"></td>
+                <td class="text-center" id="materia-um"></td>
+                <td class="text-center" id="turma"></td>
+                <td class="text-center">
+                    09:45 - 11:00 </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">Quarta-Feira</td>
+                <td class="text-center" id="curso"> </td>
+                <td class="text-center" id="materia-dois"></td>
+                <td class="text-center" id="turma"> </td>
+                <td class="text-center">
+                    08:15 - 09:30 </td>
+            </tr>
+            <tr>
+                <td class="text-center">Quarta-Feira</td>
+                <td class="text-center" id="curso"></td>
+                <td class="text-center" id="materia-dois"></td>
+                <td class="text-center" id="turma"></td>
+                <td class="text-center">
+                    09:45 - 11:00 </td>
+            </tr>
+            <tr>
+                <td class="text-center">Sexta-Feira</td>
+                <td class="text-center" id="curso"> </td>
+                <td class="text-center" id="materia-tres"></td>
+                <td class="text-center" id="turma"> </td>
+                <td class="text-center">
+                    08:15 - 09:30 </td>
+            </tr>
+            <tr>
+                <td class="text-center">Sexta-Feira</td>
+                <td class="text-center" id="curso"></td>
+                <td class="text-center" id="materia-tres"></td>
+                <td class="text-center" id="turma"></td>
+                <td class="text-center">
+                    09:45 - 11:00 </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const area = localStorage.getItem('cursoEscolhido');
+
+        const colunasCurso = document.querySelectorAll('[id="curso"]');
+        colunasCurso.forEach(celula => {
+            celula.textContent = area;
+        });
+
+    </script>
+
+</body>
+
+
+
+</html>

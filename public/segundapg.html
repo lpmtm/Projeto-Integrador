@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do aluno</title>
+    <link rel="website icon" type="png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png">
     <link rel="stylesheet" href="stylestest.css">
 </head>
 
@@ -16,35 +17,35 @@
     <div class="sidebar">
         <h2>Aluno</h2>
         <nav>
-            <a href="#perfil">Perfil</a>
+            <a href="perfil.html">Perfil</a>
             <a href="boletim.html">Boletim</a>
-            <a href="#Frequência">Frequência</a>
-            <a href="#Matérias">Matérias</a>
-            <a href="index.html">Sair</a>
+            <a href="frequencia.html">Frequência</a>
+            <a href="gradehoraria.html">Grade</a>
         </nav>
+         <button class="buttonsp" onclick="logout()">Sair</button>
     </div>
-<div id="container-perfil">
-    <div id="dados-usuario">
-
+    <div id="container-perfil">
+        <div id="dados-usuario">
+            <h2>Bem-vindo(a)!</h2>
+            <p>Você está logado com sucesso.</p>
+           
+        </div>
     </div>
-</div>
     <!-- JavaScript para buscar e mostrar o email e senha -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const email = localStorage.getItem('email');
-            const password = localStorage.getItem('password');
+ <script>
+    // Verifica se tem token no localStorage
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Você precisa estar logado!');
+      window.location.href = 'login.html';
+    }
 
-            const dadosUsuario = document.getElementById('dados-usuario');
-            if (email && password) {
-                dadosUsuario.innerHTML = `
-                    <p><strong>Endereço de e-mail:</strong> ${email}</p>
-                    <p><strong>Senha de acesso:</strong> ${maskedPassword}</p>
-                `;
-            } else {
-                dadosUsuario.innerHTML = `<p>Desculpe, não conseguimos localizar seus dados de usuário.</p>`;
-            }
-        });
-    </script>
+    // Função de logout
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = 'index.html';
+    }
+  </script>
 
 
 </body>

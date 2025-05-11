@@ -7,15 +7,12 @@
     box-sizing: border-box;
 }
 
-
-
 .body-um {
     font-family: Arial, sans-serif;
     margin: 0;
     background: #f4f4f4;
     padding: 0 160px 0px 160px;
 }
-
 
 .header-um {
     font-family: "Chakra Petch", sans-serif;
@@ -58,7 +55,6 @@
     padding: 18px 40px;
 }
 
-
 .titulo-sobrenos {
     font-family: "Poppins", sans-serif;
     font-size: 200%;
@@ -72,22 +68,15 @@
 }
 
 #sobre .container {
-
-    /* Permite que os elementos quebrem linha */
     gap: 20px;
     align-items: flex-start;
-
 }
-
-
 
 #sobre .texto {
     flex: 1 1 60%;
-    /* Ocupa 60% da largura da tela, mas pode diminuir */
     font-family: "Poppins", sans-serif;
     font-size: large;
     min-width: 300px;
-    /* Evita que o texto fique muito pequeno antes de quebrar */
 }
 
 p {
@@ -97,25 +86,18 @@ p {
     font-size: 20px;
 }
 
-
 .imagem img {
-    /* Define um tamanho fixo inicial, mas permite ajuste */
-    /* MantÃ©m a imagem com largura controlada */
     margin: 0 20px 20px 20px;
     float: right;
     position: static;
     height: 222px;
     width: 333px;
     border-radius: 2%;
-
-
 }
-
 
 #catalogo {
     padding-top: 200px;
 }
-
 
 #titulo-catalogo {
     margin: 0 0;
@@ -127,7 +109,6 @@ p {
 }
 
 #catalogo {
-
     display: block;
     flex-wrap: wrap;
     justify-content: center;
@@ -135,7 +116,6 @@ p {
 }
 
 .card a {
-
     display: grid;
     text-decoration: none;
     color: rgb(236, 236, 236);
@@ -149,8 +129,6 @@ p {
     font-family: "Poppins", sans-serif;
     font-size: 125%;
     box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.2);
-
-
 }
 
 .sub-tc {
@@ -196,7 +174,7 @@ p {
     line-height: 1.6;
 }
 
-.materia-index{
+.materia-index {
     padding: 20px 0px;
     margin: 10px 390px;
     color: #ddd;
@@ -219,10 +197,7 @@ p {
     font-size: 200%;
     justify-content: center;
     text-align: center;
-    ;
 }
-
-
 
 form {
     display: block;
@@ -238,10 +213,9 @@ input {
     margin: 5px 0;
     padding: 10px;
     width: 300px;
-
 }
 
-button {
+button.login {
     background-color: #444;
     color: rgb(236, 236, 236);
     width: 300px;
@@ -253,7 +227,6 @@ button:hover {
     cursor: pointer;
     background-color: #333;
 }
-
 
 .div-rodape {
     text-align: center;
@@ -267,22 +240,16 @@ button:hover {
 
 .div-rodape nav ul li {
     justify-content: space-around;
-
     list-style: none;
-
-
 }
 
 .div-rodape nav ul li a {
-
     float: left;
     font-size: 20px;
-
     display: block;
     text-decoration: none;
     color: white;
 }
-
 
 footer {
     margin-top: 300px;
@@ -320,9 +287,8 @@ ul {
     padding: 0;
 }
 
-
-
-#header-dois{
+/* -------------------------------------------------------------------Segundapg.html---------------------------------------------------------------*/
+#header-dois {
     font-family: "Chakra Petch", sans-serif;
     background: #333;
     color: white;
@@ -330,7 +296,6 @@ ul {
     padding: 20px;
     font-size: 24px;
     display: block;
-    
 }
 
 .body-dois {
@@ -340,6 +305,8 @@ ul {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
     font-size: large;
     color: white;
     text-decoration: none;
@@ -360,7 +327,6 @@ ul {
 
 .sidebar nav {
     list-style: none;
-
 }
 
 .sidebar nav a {
@@ -377,6 +343,21 @@ ul {
     background-color: #1f1f1f;
 }
 
+.buttonsp {
+  background-color: #333;
+  color: rgb(236, 236, 236);
+  margin: auto 0 20px 0; /* empurra pra baixo com margem de 20px no fundo */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: large;
+  width: 180px;
+  align-self: center; /* opcional, centraliza horizontalmente */
+}
+
+.buttonsp:hover {
+    background-color: #1f1f1f;
+    cursor: pointer;
+}
 
 .main-content {
     margin-left: 220px;
@@ -390,18 +371,105 @@ ul {
     margin-bottom: 20px;
 }
 
-
-
-#container-perfil{
+#container-perfil {
     padding: 83px 160px 0px 240px;
+}
+
+#formulario {
+    margin-top: 100px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+button.sp {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background: #333;
+    color: white;
+    border: none;
+    display: block;
+}
+
+.opcaocursos {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.opcaocursos input {
+    margin-right: 8px;
+}
+
+#container-perfil {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fefefe;
+}
+
+#dados-usuario {
+    margin-bottom: 20px;
+}
+
+.opcaocursos {
+    margin-bottom: 10px;
+}
+
+#escolhacurso button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #333;
+    ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#escolhacurso button:hover {
+    background-color: #333;
 }
 
 
 
+#container-perfil {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+#dados-usuario {
+    margin-bottom: 20px;
+}
 
+.opcaocursos {
+    margin-bottom: 10px;
+}
 
-.header-boletim{
+#escolhacurso button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#escolhacurso button:hover {
+    background-color: #333;
+}
+
+/* --------------------------------------------------------------------boletim.html--------------------------------------------------------*/
+.header-boletim {
     font-family: "Chakra Petch", sans-serif;
     background: #333;
     color: white;
@@ -411,19 +479,208 @@ ul {
     display: block;
 }
 
-section.materia{
+section.materia {
     padding: 20px;
     margin: 20px 200px;
     background-color: #f8f8f8;
     border-radius: 10px;
-    box-shadow:2px 2px 8px black;
-    
-  
+    box-shadow: 2px 2px 8px black;
 }
 
-.semestre{
+.semestre {
     background-color: #9c9c9c;
     border-radius: 5px;
     padding: 5px 10px;
     margin: 10px 40px;
+}
+
+.sair {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    top: 0;
+    position: absolute;
+    padding: 20px 20px 20px 20px;
+}
+
+.sair:hover {
+    background-color: #424242;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+/* -----------------------------------------------------------------grade.html--------------------------------------------------------------------*/
+table {
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    margin: 100px auto;
+    box-shadow: 2px 2px 8px rgb(107, 107, 107);
+}
+
+th,
+td {
+    border: 1px solid #999;
+    padding: 8px;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ---------------------------------------------elemetos/materias.html---------------------------------------------------------------------------------*/
+.header-ci {
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+.header-ds {
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+.header-ia {
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+.header-si {
+    font-family: "Chakra Petch", sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+#ciencia {
+    font-family: sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+#desenvolvimento {
+    font-family: sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+#Inteligência {
+    font-family: sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+#Sistemas {
+    font-family: sans-serif;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    display: block;
+}
+
+.info {
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 20px 200px;
+    background-color: #686262;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px #fffefe;
+}
+
+/* ---------------------------------------------elemetos/perfil.html---------------------------------------------------------------------------------*/
+
+body#perfil-body {
+    background-color: #222;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #1e1e1e, #4d4d4d);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+body#perfil-body::before,
+body#perfil-body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 15s infinite ease-in-out alternate;
+}
+
+.header-perfil {
+    display: flex;
+    font-family: "Chakra Petch", sans-serif;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    justify-content: space-between;
+}
+
+.sair-perfil {
+
+    text-decoration: none;
+    color: white;
+    padding: 0px 20px 20px 20px;
+}
+
+.perfil-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 40px;
+    background-color: #cecece;
+    margin: 50px auto 10px auto;
+    height: auto;
+    width: 45%;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(206, 206, 206, 0.4);
+}
+
+.perfil-container li {
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    background-color: #acacac;
+    padding: 15px;
+    text-decoration: none;
+    list-style: none;
+    font-size: 16px;
+
 }
