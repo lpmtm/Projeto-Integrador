@@ -47,7 +47,7 @@ npm start
 ##Objetivo do Projeto de Pesquisa
 Este projeto foi desenvolvido como parte do Projeto Integrador na disciplina de Estrutura de Dados, com foco em aplicar conceitos de organização de dados, segurança de acesso e boas práticas de desenvolvimento web no contexto da educação.
 
-🧑‍💻 Integrantes
+##Integrantes
 Nome 1
 
 Nome 2
