@@ -12,7 +12,7 @@ Este projeto tem como objetivo a criação de um sistema web voltado à visualiz
 - Integração com banco de dados relacional
 - Frontend com visualização dinâmica dos dados
 
-##Estrutura de Pastas
+## Estrutura de Pastas
 
 - `controllers/` – Lógica das requisições e controle das regras de negócio  
 - `models/` – Definição dos modelos e esquemas do banco de dados  
