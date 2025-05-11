@@ -19,7 +19,7 @@ Este projeto tem como objetivo a criação de um sistema web voltado à visualiz
 - `views/` – Páginas HTML/JS utilizadas no frontend  
 - `database/` – Conexão e configurações do banco de dados  
 - `utils/` – Funções auxiliares  
-- `public/` – Arquivos públicos como CSS, imagens etc  
+- `public/` – Arquivos públicos como CSS e imagens  
 - `boletins/` e `courses/` – Dados de exemplo ou submódulos da aplicação
 
 ## Autenticação
@@ -29,7 +29,7 @@ O sistema utiliza JWT para proteger rotas sensíveis, como a de visualização d
 - Node.js
 - Express
 - JSON Web Token (JWT)
-- Banco de dados relacional (Ex: PostgreSQL, MySQL ou SQLite)
+- Banco de dados relacional (MySQL)
 - HTML/CSS e JavaScript no frontend
 
 ## Instalação
