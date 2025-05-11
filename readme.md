@@ -33,8 +33,8 @@ O sistema utiliza JWT para proteger rotas sensíveis, como a de visualização d
 - HTML/CSS e JavaScript no frontend
 
 ## Instalação
-```bash```  
-git clone https://github.com/seu-usuario/seu-repositorio.git  
+bash  
+git clone https://github.com/ianmelo1/modelo.git  
 cd seu-repositorio  
 npm install  
 npm start  
