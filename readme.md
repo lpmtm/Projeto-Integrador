@@ -38,7 +38,7 @@ O sistema utiliza JWT para proteger rotas sensíveis, como a de visualização d
 
 ##Instalação
 
-```bash
+```bash```
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 npm install
