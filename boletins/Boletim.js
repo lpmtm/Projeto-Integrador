@@ -1,26 +1,23 @@
 const Sequelize = require("sequelize");
-const connection = require("../database/database");
-const Course = require("../courses/Course");
+const connection = require("../database/connection"); // Agora vem do novo arquivo
 
-const Boletim = connection.define('boletins', {
-    title: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    slug: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    body: {
-        type: Sequelize.TEXT,
-        allowNull: false
-    }
+const Boletim = connection.define("Boletim", {
+  materia: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  semestre: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  nota: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  UserId: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
 });
-
-Boletim.sync({force: true});
-
-Course.hasMany(Boletim); 
-Boletim.belongsTo(Course); 
-
 
 module.exports = Boletim;

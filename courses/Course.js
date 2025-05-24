@@ -11,6 +11,6 @@ title:{
 }
 })
 
-Course.sync({force: true})
+Course.sync();
 
 module.exports = Course;

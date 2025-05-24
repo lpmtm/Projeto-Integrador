@@ -2,11 +2,11 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="website icon" type="png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png">
-    <link rel="stylesheet" href="stylestest.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boletim</title>
+    <link rel="website icon" type="image/png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png" />
+    <link rel="stylesheet" href="stylestest.css" />
 </head>
 
 <body>
@@ -16,34 +16,67 @@
     </header>
 
     <main class="container-boletim">
-
-        <section class="materia">
-            <h2 class="titulo-materia">Materia um</h2>
+        <section class="materia" id="materia-1">
+            <h2 class="titulo-materia">Matéria 1</h2>
             <div class="semestre">
                 <h3>1º Semestre</h3>
-                <p class="nota">Nota: 8.5</p>
-            </div>
-
-        </section>
-
-        <section class="materia">
-            <h2 class="titulo-materia">Materia dois</h2>
-            <div class="semestre">
-                <h3>1º Semestre</h3>
-                <p class="nota">Nota: 7.5</p>
-            </div>
-
-        </section>
-
-        <section class="materia">
-            <h2 class="titulo-materia">Materia tres</h2>
-            <div class="semestre">
-                <h3>1º Semestre</h3>
-                <p class="nota">Nota: 9.2</p>
+                <p class="nota">Nota: <span class="nota-valor">--</span></p>
             </div>
         </section>
 
+        <section class="materia" id="materia-2">
+            <h2 class="titulo-materia">Matéria 2</h2>
+            <div class="semestre">
+                <h3>1º Semestre</h3>
+                <p class="nota">Nota: <span class="nota-valor">--</span></p>
+            </div>
+        </section>
+
+        <section class="materia" id="materia-3">
+            <h2 class="titulo-materia">Matéria 3</h2>
+            <div class="semestre">
+                <h3>1º Semestre</h3>
+                <p class="nota">Nota: <span class="nota-valor">--</span></p>
+            </div>
+        </section>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                alert("Você precisa estar logado!");
+                window.location.href = "/login.html";
+                return;
+            }
+
+            fetch("http://localhost:8080/api/boletim", {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro na resposta do servidor");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    data.forEach((materia, index) => {
+                        const section = document.getElementById(`materia-${index + 1}`);
+                        if (section) {
+                            section.querySelector(".titulo-materia").textContent = materia.materia;
+                            section.querySelector("h3").textContent = materia.semestre;
+                            section.querySelector(".nota-valor").textContent = materia.nota;
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Erro ao carregar boletim:", error);
+                    alert("Erro ao carregar boletim.");
+                });
+        });
+    </script>
 </body>
 
 </html>

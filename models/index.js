@@ -1,5 +1,4 @@
-const connection = require("./connection"); // Pega a conexão de lá
-const User = require("../models/User");
+const User = require("./User");
 const Boletim = require("../boletins/Boletim");
 
 // Associações
@@ -8,11 +7,10 @@ User.hasMany(Boletim, {
   onDelete: "CASCADE",
 });
 Boletim.belongsTo(User, {
-  foreignKey: "UserId",
+  foreignKey: "UserId"
 });
 
 module.exports = {
-  connection,
   User,
-  Boletim,
+  Boletim
 };
