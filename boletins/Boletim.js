@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const connection = require("../database/connection"); // Agora vem do novo arquivo
+const connection = require("../database/database"); // Agora vem do novo arquivo
 
 const Boletim = connection.define("Boletim", {
   materia: {

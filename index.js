@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const { connection, User, Boletim } = require("./database/database"); // AJUSTADO AQUI
+const connection = require("./database/database"); // AJUSTADO AQUI
 
 // Importação dos modelos (já estão importados junto com a conexão)
 const Course = require("./courses/Course");

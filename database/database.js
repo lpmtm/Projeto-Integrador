@@ -1,18 +1,8 @@
-const connection = require("./connection"); // Pega a conexão de lá
-const User = require("../models/User");
-const Boletim = require("../boletins/Boletim");
+const { Sequelize } = require("sequelize");
 
-// Associações
-User.hasMany(Boletim, {
-  foreignKey: "UserId",
-  onDelete: "CASCADE",
-});
-Boletim.belongsTo(User, {
-  foreignKey: "UserId",
+const connection = new Sequelize("modelo", "root", "010203", {
+  host: "localhost",
+  dialect: "mysql",
 });
 
-module.exports = {
-  connection,
-  User,
-  Boletim,
-};
+module.exports = connection;
