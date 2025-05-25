@@ -1,44 +1,36 @@
 // authController.js
 const { generateToken } = require('../utils/jwt.js');
-// Importe o modelo User a partir do objeto db exportado por models/index.js
-const { User } = require('../models'); // Sequelize automaticamente procura por index.js em ../models
+const { User } = require('../models');
 
 async function login(req, res) {
   const { email, password } = req.body;
-
   try {
-    // Agora User.findOne deve funcionar corretamente
     const user = await User.findOne({ where: { email } });
-
-    if (!user) { // É uma boa prática verificar se o usuário existe primeiro
+    if (!user) {
       return res.status(401).json({ error: true, message: 'Credenciais inválidas' });
     }
-    
-    // IMPORTANTE: Verificação de senha!
-    // Você está comparando senhas em texto plano (user.password !== password).
-    // Isso é MUITO INSEGURO. Você deve usar bcrypt ou argon2 para hash de senhas.
-    // Exemplo com bcrypt (requer instalação e configuração):
-    // const isValidPassword = await bcrypt.compare(password, user.password);
-    // if (!isValidPassword) {
-    //   return res.status(401).json({ error: true, message: 'Credenciais inválidas' });
-    // }
-
-    if (user.password !== password) { // Mantenha por agora, mas planeje mudar para hash
+    if (user.password !== password) { // Lembre-se de usar hash de senha em produção!
         return res.status(401).json({ error: true, message: 'Credenciais inválidas' });
     }
 
-    const token = generateToken({
+   const token = generateToken({
       id: user.id,
-      email: user.email,
-      role: user.role
+      email: user.email,       // O email você já tinha
+      role: user.role,         // O role você já tinha
+      nome: user.nome,         // O nome você já tinha
+      curso: user.curso,       // NOVO: Adicionando o curso
+      matricula: user.matricula, // NOVO: Adicionando a matrícula
+      semestre: user.semestre,   // NOVO: Adicionando o semestre
+      telefone: user.telefone    // NOVO: Adicionando o telefone
     });
+ 
 
-    console.log('Login bem-sucedido. Token gerado:', token);
+    console.log('Login bem-sucedido. Nome incluído no token.');
     res.json({ token });
 
   } catch (error) {
     console.error('Erro no login:', error);
-    res.status(500).json({ error: true, message: 'Erro no servidor' });
+    res.status(500).json({ error: true, message: 'Erro no servidor durante o login.' });
   }
 }
 

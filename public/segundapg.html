@@ -2,70 +2,142 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do aluno</title>
-    <link rel="website icon" type="png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png">
-    <link rel="stylesheet" href="stylestest.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do aluno</title>
+  <link rel="website icon" type="png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png">
+  <link rel="stylesheet" href="stylestest.css">
 </head>
 
 <body class="header-dois">
-    <header id="header-dois">
-        <h1>Página do aluno</h1>
-    </header>
+  <header id="header-dois">
+    <h1>Página do aluno</h1>
+  </header>
 
-    <div class="perfil-container">
-        <li>Nome:</li>
-        <li>Curso:</li>
-        <li>Matrícula:</li>
-        <li>Semestre:</li>
-        <li>Telefone:</li>
-        <li>Email:</li>
-    </div>
+<div class="perfil-container">
+  <ul> <li>Nome: <span id="perfil-nome"></span></li>
+    <li>Curso: <span id="perfil-curso"></span></li>
+    <li>Matrícula: <span id="perfil-matricula"></span></li>
+    <li>Semestre: <span id="perfil-semestre"></span></li>
+    <li>Telefone: <span id="perfil-telefone"></span></li>
+    <li>Email: <span id="perfil-email"></span></li>
+  </ul>
+</div>
 
-    <div class="sidebar">
-        <h2 id="saudacao"></h2>
-        <nav>
-            <a href="boletim.html">Boletim</a>
-            <a href="frequencia.html">Frequência</a>
-            <a href="gradehoraria.html">Grade</a>
-            <a href="relatorio.html">Relatório</a>
-        </nav>
-         <button class="buttonsp" onclick="logout()">Sair</button>
-    </div>
+  <div class="sidebar">
+    <h2 id="saudacao"></h2>
+    <nav>
+      <a href="boletim.html">Boletim</a>
+      <a href="frequencia.html">Frequência</a>
+      <a href="gradehoraria.html">Grade</a>
+      <a href="relatorio.html">Relatório</a>
+    </nav>
+    <button class="buttonsp" onclick="logout()">Sair</button>
+  </div>
 
 
-    <!-- JavaScript para buscar e mostrar o email e senha -->
- <script>
-    // Verifica se tem token no localStorage
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Você precisa estar logado!');
-      window.location.href = 'login.html';
+  <!-- JavaScript para buscar e mostrar o email e senha -->
+<script>
+    // Função para decodificar o payload de um JWT (sem verificar assinatura)
+    function decodeJwtPayload(token) {
+        try {
+            const base64Url = token.split('.')[1]; // Pega a parte do payload
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        } catch (e) {
+            console.error("Erro ao decodificar o token:", e);
+            return null;
+        }
     }
 
-    //da oi
-    let data = new Date();
-    let hora = data.getHours();
-    let min = data.getMinutes();
+    window.onload = function () {
+        const token = localStorage.getItem('token');
 
-    let saudacao;
-    if (hora <= 11){
-      saudacao = 'Bom dia, '
-    }else if(hora <= 17){
-      saudacao = 'Boa tarde, '
-    }else{
-      saudacao = 'Boa noite, '
-    }
-    document.getElementById("saudacao").textContent = saudacao + "fulano ";
-    window.onload = saudacao;
-    // Função de logout
+        if (!token) {
+            alert('Você precisa estar logado!');
+            window.location.href = 'login.html';
+            return; // Para a execução
+        }
+
+        const userDataPayload = decodeJwtPayload(token); // Decodifica o token
+
+        // Variáveis para guardar os dados do perfil, com "N/A" (Não Aplicável/Disponível) como padrão
+        let nomeUsuario = "N/A";
+        let cursoUsuario = "N/A";
+        let matriculaUsuario = "N/A";
+        let semestreUsuario = "N/A";
+        let telefoneUsuario = "N/A";
+        let emailUsuario = "N/A";
+
+        if (userDataPayload) {
+            // Pega os dados do payload do token. Se um campo não existir no token, mantém "N/A".
+            nomeUsuario = userDataPayload.nome || "N/A";
+            cursoUsuario = userDataPayload.curso || "N/A";
+            matriculaUsuario = userDataPayload.matricula || "N/A";
+            semestreUsuario = userDataPayload.semestre || "N/A";
+            telefoneUsuario = userDataPayload.telefone || "N/A";
+            emailUsuario = userDataPayload.email || "N/A"; // O email já deve estar no token
+        } else {
+            // Se não conseguir decodificar o token ou o payload estiver vazio
+            console.warn("Não foi possível decodificar o token ou o payload está vazio. Verifique o token e o backend.");
+            alert("Erro ao carregar seus dados. Por favor, tente fazer login novamente.");
+            logout(); // Desloga o usuário se o token for problemático
+            return; // Para a execução da função onload
+        }
+
+        // Lógica da saudação (Bom dia, Boa tarde, Boa noite)
+        let data = new Date();
+        let hora = data.getHours();
+        let saudacaoPeriodo;
+
+        if (hora < 12) {
+            saudacaoPeriodo = 'Bom dia, ';
+        } else if (hora < 18) {
+            saudacaoPeriodo = 'Boa tarde, ';
+        } else {
+            saudacaoPeriodo = 'Boa noite, ';
+        }
+
+        // Atualiza o elemento da saudação principal (se você ainda o tiver)
+        const elementoSaudacao = document.getElementById("saudacao");
+        if (elementoSaudacao) {
+            elementoSaudacao.textContent = saudacaoPeriodo + nomeUsuario + "!";
+        } else {
+            // Se você removeu a saudação separada, pode remover este bloco console.error
+            // console.error("Elemento com ID 'saudacao' para a saudação principal não encontrado no HTML.");
+        }
+
+        // ---- NOVO: PREENCHENDO OS DADOS DETALHADOS DO PERFIL ----
+        // Certifique-se que os IDs no HTML correspondem aos usados aqui.
+        const elNome = document.getElementById("perfil-nome");
+        if (elNome) elNome.textContent = nomeUsuario;
+
+        const elCurso = document.getElementById("perfil-curso");
+        if (elCurso) elCurso.textContent = cursoUsuario;
+
+        const elMatricula = document.getElementById("perfil-matricula");
+        if (elMatricula) elMatricula.textContent = matriculaUsuario;
+
+        const elSemestre = document.getElementById("perfil-semestre");
+        if (elSemestre) elSemestre.textContent = semestreUsuario;
+
+        const elTelefone = document.getElementById("perfil-telefone");
+        if (elTelefone) elTelefone.textContent = telefoneUsuario;
+
+        const elEmail = document.getElementById("perfil-email");
+        if (elEmail) elEmail.textContent = emailUsuario;
+        // ---- FIM DO NOVO TRECHO ----
+    };
+
     function logout() {
-      localStorage.removeItem('token');
-      window.location.href = 'index.html';
+        localStorage.removeItem('token');
+        // alert('Você foi desconectado.'); // Opcional: alertar antes de redirecionar
+        window.location.href = 'index.html';
     }
-  </script>
-
+</script>
 
 </body>
 
