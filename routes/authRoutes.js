@@ -12,5 +12,4 @@ router.get('/protected', authMiddleware, (req, res) => {
   res.json({ message: 'Acesso permitido', user: req.user });
 });
 
-
 module.exports = router;

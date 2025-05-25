@@ -24,11 +24,12 @@
     </div>
 
     <div class="sidebar">
-        <h2>Olá, </h2>
+        <h2 id="saudacao"></h2>
         <nav>
             <a href="boletim.html">Boletim</a>
             <a href="frequencia.html">Frequência</a>
             <a href="gradehoraria.html">Grade</a>
+            <a href="relatorio.html">Relatório</a>
         </nav>
          <button class="buttonsp" onclick="logout()">Sair</button>
     </div>
@@ -43,6 +44,21 @@
       window.location.href = 'login.html';
     }
 
+    //da oi
+    let data = new Date();
+    let hora = data.getHours();
+    let min = data.getMinutes();
+
+    let saudacao;
+    if (hora <= 11){
+      saudacao = 'Bom dia, '
+    }else if(hora <= 17){
+      saudacao = 'Boa tarde, '
+    }else{
+      saudacao = 'Boa noite, '
+    }
+    document.getElementById("saudacao").textContent = saudacao + "fulano ";
+    window.onload = saudacao;
     // Função de logout
     function logout() {
       localStorage.removeItem('token');

@@ -288,19 +288,19 @@ ul {
 }
 
 .password-container {
-    position: relative; /* Essencial para posicionar o ícone dentro dele */
-    margin-bottom: 10px; /* Espaçamento entre o campo de senha e o próximo elemento */
+    position: relative; 
+    margin-bottom: 10px; 
 }
 .toggle-password {
     position: absolute;
-    right: 10px; /* Distância da direita do campo */
-    top: 50%; /* Centraliza verticalmente */
-    transform: translateY(-50%); /* Ajuste fino para o centro exato */
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
     cursor: pointer;
     font-weight: bold;
     color: #555;
-    user-select: none; /* Impede que o texto seja selecionado ao clicar */
-    font-size: 1.2em; /* Tamanho do ícone */
+    user-select: none; 
+    font-size: 1.2em; 
 }
 
 .toggle-password:hover {
