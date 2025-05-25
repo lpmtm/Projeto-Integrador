@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const connection = require("./database/database"); // AJUSTADO AQUI
+const seed = require('./database/seed');
 
 // Importação dos modelos (já estão importados junto com a conexão)
 const Course = require("./courses/Course");
