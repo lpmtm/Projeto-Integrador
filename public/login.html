@@ -16,12 +16,26 @@
 
     <form id="formLogin"> 
         <input type="email" id="email" name="email" placeholder="Digite o seu email" required>
-        <input type="password" id="password" name="password" placeholder="Digite a sua senha" required>
+        <div class="password-container">
+            <input type="password" id="password" name="password" placeholder="Digite a sua senha" required>
+            <span class="toggle-password" id="togglePassword">🔓</span>
+        </div>
         <button type="submit" class="login">Entrar</button>
     </form>
 </section>
 
 <script>
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
+    togglePassword.addEventListener('click', function () {
+        // Altera o tipo do input entre 'password' e 'text'
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+
+        // Altera o ícone do "olho" para indicar o estado
+        this.textContent = type === 'password' ? '🔓' : '🔒';
+    });
 document.getElementById('formLogin').addEventListener('submit', async function(event) {
   event.preventDefault();
 

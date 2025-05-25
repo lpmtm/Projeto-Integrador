@@ -10,13 +10,13 @@
 .body-um {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f4f4;
+    background: rgb(244, 244, 244);
     padding: 0 160px 0px 160px;
 }
 
 .header-um {
     font-family: "Chakra Petch", sans-serif;
-    background: #333;
+    background: rgb(51, 51, 51);
     color: white;
     text-align: center;
     padding: 20px;
@@ -287,22 +287,76 @@ ul {
     padding: 0;
 }
 
-/* -------------------------------------------------------------------Segundapg.html---------------------------------------------------------------*/
-#header-dois {
-    font-family: "Chakra Petch", sans-serif;
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
-    display: block;
+.password-container {
+    position: relative; /* Essencial para posicionar o ícone dentro dele */
+    margin-bottom: 10px; /* Espaçamento entre o campo de senha e o próximo elemento */
+}
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Distância da direita do campo */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para o centro exato */
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    user-select: none; /* Impede que o texto seja selecionado ao clicar */
+    font-size: 1.2em; /* Tamanho do ícone */
 }
 
-.body-dois {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f4f4;
+.toggle-password:hover {
+    color: #000;
 }
+/* -------------------------------------------------------------------Segundapg.html---------------------------------------------------------------*/
+
+body#header-dois::before,
+body#header-dois ::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 15s infinite ease-in-out alternate;
+}
+.header-dois h1{
+    padding-top: 10px;
+}
+
+.header-dois {
+    background-color: #222;
+    color: hsl(0, 0%, 96%);
+    margin: 0 0 0 220px;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #1e1e1e, #4d4d4d);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.perfil-container {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 40px;
+    background-color: #444;
+    margin: 27px auto 10px auto;
+    height: auto;
+    width: 45%;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(206, 206, 206, 0.4);
+}
+.perfil-container li {
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    background-color: #302d2d;
+    padding: 15px;
+    text-decoration: none;
+    list-style: none;
+    font-size: 16px;
+
+} 
 
 .sidebar {
     display: flex;
@@ -330,6 +384,7 @@ ul {
 }
 
 .sidebar nav a {
+    text-align: start;
     display: block;
     padding: 15px 10px;
     cursor: pointer;
@@ -620,67 +675,4 @@ tbody tr:nth-child(even) {
     background-color: #686262;
     border-radius: 10px;
     box-shadow: 2px 2px 8px #fffefe;
-}
-
-/* ---------------------------------------------elemetos/perfil.html---------------------------------------------------------------------------------*/
-
-body#perfil-body {
-    background-color: #222;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(120deg, #1e1e1e, #4d4d4d);
-    font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
-    position: relative;
-}
-
-body#perfil-body::before,
-body#perfil-body::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.5;
-    animation: float 15s infinite ease-in-out alternate;
-}
-
-.header-perfil {
-    display: flex;
-    font-family: "Chakra Petch", sans-serif;
-    color: white;
-    padding: 20px;
-    font-size: 24px;
-    justify-content: space-between;
-}
-
-.sair-perfil {
-
-    text-decoration: none;
-    color: white;
-    padding: 0px 20px 20px 20px;
-}
-
-.perfil-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 30px 40px;
-    background-color: #cecece;
-    margin: 50px auto 10px auto;
-    height: auto;
-    width: 45%;
-    border-radius: 30px;
-    box-shadow: 0 0 15px rgba(206, 206, 206, 0.4);
-}
-
-.perfil-container li {
-    margin: 10px 0 10px 0;
-    border-radius: 10px;
-    background-color: #acacac;
-    padding: 15px;
-    text-decoration: none;
-    list-style: none;
-    font-size: 16px;
-
 }
