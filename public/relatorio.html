@@ -1,14 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatórios</title>
-    <link rel="website icon" type="image/png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png" />
-    <link rel="stylesheet" href="stylestest.css" />
+    <title>Relatórios de Desempenho do Aluno</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Permite quebras de linha longas */
+            word-wrap: break-word; /* Quebra palavras longas */
+        }
+        canvas {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>aq vai ser o relatorio pessoal do aluno feito pela integraçao da ia no projeto</h1>
+    <div class="container">
+        <h1>Relatório de Desempenho do Aluno</h1>
 
+        <div id="loading" style="display: none;">Carregando relatórios...</div>
+        <div id="error" class="error" style="display: none;"></div>
+
+        <h2>Relatório de Texto</h2>
+        <pre id="relatorioTexto">Aguardando relatório...</pre>
+
+        <h2>Gráfico de Desempenho</h2>
+        <canvas id="graficoDesempenho"></canvas>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const alunoId = 1; // **IMPORTANTE:** Obtenha o ID do aluno dinamicamente (e.g., da URL, de uma sessão, etc.)
+            const loadingDiv = document.getElementById('loading');
+            const errorDiv = document.getElementById('error');
+            const relatorioTextoPre = document.getElementById('relatorioTexto');
+            const ctx = document.getElementById('graficoDesempenho').getContext('2d');
+
+            loadingDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+
+            try {
+                // Faça a requisição para sua API Node.js
+                const response = await fetch(`http://localhost:3000/api/relatorios/${alunoId}`); // Ajuste a URL da sua API
+                const data = await response.json();
+
+                if (data.success) {
+                    relatorioTextoPre.textContent = data.relatorioTexto;
+
+                    // Dados para o gráfico
+                    const graficoData = {
+                        labels: data.dadosGrafico.labels,
+                        datasets: [{
+                            label: 'Notas do Aluno',
+                            data: data.dadosGrafico.data,
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // Configurações do gráfico
+                    const config = {
+                        type: 'bar', // Tipo de gráfico (bar, line, pie, etc.)
+                        data: graficoData,
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: `Desempenho por Disciplina para Aluno ${alunoId}`
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return `${context.dataset.label}: ${context.raw}`;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 10, // Assumindo notas de 0 a 10, ajuste se necessário
+                                    title: {
+                                        display: true,
+                                        text: 'Nota'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Disciplina'
+                                    }
+                                }
+                            }
+                        }
+                    };
+
+                    // Crie o gráfico
+                    new Chart(ctx, config);
+
+                } else {
+                    relatorioTextoPre.textContent = 'Não foi possível gerar o relatório textual.';
+                    errorDiv.textContent = `Erro: ${data.message || 'Erro desconhecido'}`;
+                    errorDiv.style.display = 'block';
+                }
+
+            } catch (error) {
+                console.error('Erro ao buscar relatórios:', error);
+                relatorioTextoPre.textContent = 'Erro ao carregar o relatório textual.';
+                errorDiv.textContent = `Erro de conexão: ${error.message}. Verifique se o servidor está rodando e a URL está correta.`;
+                errorDiv.style.display = 'block';
+            } finally {
+                loadingDiv.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

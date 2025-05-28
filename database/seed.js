@@ -3,6 +3,7 @@ const connectDB = require('./database'); // Importa a função de conexão
 const User = require('../models/User'); // Model mongoose
 const Boletim = require("../models/Boletim"); // Model mongoose Boletim
 
+
 async function seed() {
   try {
     await connectDB(); // Conecta ao MongoDB antes de fazer qualquer operação

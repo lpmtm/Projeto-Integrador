@@ -1,1 +1,16 @@
 .env 
+node_modules/
+ Arquivos de log e cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+Thumbs.db # Windows
+
+# IDEs e editores
+.vscode/
+.idea/
+
+# Builds e dist
+dist/
+build/
