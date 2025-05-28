@@ -2,16 +2,15 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const connection = require("./database/database"); // AJUSTADO AQUI
+const connectDB = require('./database/database'); // AJUSTADO AQUI
 const seed = require('./database/seed');
 
-// Importação dos modelos (já estão importados junto com a conexão)
-const Course = require("./courses/Course");
+
 
 // Importação dos controllers e rotas
-const courseController = require("./courses/CourseController");
-const boletimController = require("./boletins/BoletimController");
+
 const authRouter = require("./routes/authRoutes");
+const boletimRouter = require('./routes/authRoutes');
 
 const app = express();
 
@@ -26,22 +25,10 @@ app.use(bodyParser.json());
 
 // Rotas
 app.use("/auth", authRouter);
-app.use("/api", boletimController);
-app.use("/", courseController);
+app.use('/api/boletim', boletimRouter);
 
-// Conexão e sincronização com o banco
-connection.authenticate()
-  .then(() => {
-    console.log("Conectado ao banco de dados com sucesso!");
+connectDB();
 
-    return connection.sync({ alter: true });
-  })
-  .then(() => {
-    console.log("Banco sincronizado com sucesso!");
-    app.listen(8080, () => {
-      console.log("Servidor rodando em: http://localhost:8080");
-    });
-  })
-  .catch((err) => {
-    console.error("Erro ao conectar ao banco:", err);
-  });
+app.listen(8080, () => {
+  console.log("Servidor rodando em: http://localhost:8080");
+});

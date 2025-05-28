@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,75 +7,115 @@
     <link rel="website icon" type="image/png" href="https://media-public.canva.com/ZlHMQ/MADhH6ZlHMQ/3/tl.png" />
     <link rel="stylesheet" href="stylestest.css" />
 </head>
-
 <body>
     <header class="header-boletim">
-        Boletim
-        <a class="sair" href="segundapg.html">Sair</a>
-    </header>
+        Boletim <a class="sair" href="segundapg.html">Sair</a> </header>
 
     <main class="container-boletim">
-        <section class="materia" id="materia-1">
-            <h2 class="titulo-materia">Matéria 1</h2>
+        <section class="materia" id="materia-1" style="display: none;"> <h2 class="titulo-materia">Matéria 1</h2>
             <div class="semestre">
-                <h3>1º Semestre</h3>
+                <h3>-- Semestre</h3>
                 <p class="nota">Nota: <span class="nota-valor">--</span></p>
             </div>
         </section>
 
-        <section class="materia" id="materia-2">
-            <h2 class="titulo-materia">Matéria 2</h2>
+        <section class="materia" id="materia-2" style="display: none;"> <h2 class="titulo-materia">Matéria 2</h2>
             <div class="semestre">
-                <h3>1º Semestre</h3>
+                <h3>-- Semestre</h3>
                 <p class="nota">Nota: <span class="nota-valor">--</span></p>
             </div>
         </section>
 
-        <section class="materia" id="materia-3">
-            <h2 class="titulo-materia">Matéria 3</h2>
+        <section class="materia" id="materia-3" style="display: none;"> <h2 class="titulo-materia">Matéria 3</h2>
             <div class="semestre">
-                <h3>1º Semestre</h3>
+                <h3>-- Semestre</h3>
                 <p class="nota">Nota: <span class="nota-valor">--</span></p>
             </div>
         </section>
-    </main>
+        <p id="boletim-mensagem" style="text-align: center; display: none;"></p> </main>
 
     <script>
+        // Função para decodificar JWT (se você precisar de dados do payload aqui, senão pode remover)
+        // function decodeJwtPayload(token) { /* ... sua função ... */ }
+
         document.addEventListener("DOMContentLoaded", () => {
             const token = localStorage.getItem("token");
+            const mensagemElemento = document.getElementById("boletim-mensagem");
+
             if (!token) {
                 alert("Você precisa estar logado!");
-                window.location.href = "/login.html";
+                window.location.href = "/login.html"; // Use o caminho correto para sua página de login
                 return;
             }
 
-            fetch("http://localhost:8080/api/boletim", {
+            fetch("http://localhost:8080/api/boletim", { // Certifique-se que a porta está correta
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Erro na resposta do servidor");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    data.forEach((materia, index) => {
-                        const section = document.getElementById(`materia-${index + 1}`);
-                        if (section) {
-                            section.querySelector(".titulo-materia").textContent = materia.materia;
-                            section.querySelector("h3").textContent = materia.semestre;
-                            section.querySelector(".nota-valor").textContent = materia.nota;
-                        }
+            .then(response => {
+                if (response.status === 404) { // Boletim não encontrado
+                    return response.json().then(err => {
+                        throw new Error(err.message || "Boletim não encontrado para o semestre atual.");
                     });
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar boletim:", error);
-                    alert("Erro ao carregar boletim.");
+                }
+                if (!response.ok) { // Outros erros do servidor
+                    throw new Error(`Erro na resposta do servidor: ${response.status} ${response.statusText}`);
+                }
+                return response.json(); // Converte a resposta para JSON
+            })
+            .then(boletimData => { // boletimData é o objeto { curso, semestre, materias: [...] }
+                if (!boletimData || !boletimData.materias || boletimData.materias.length === 0) {
+                    mensagemElemento.textContent = "Nenhuma matéria encontrada para este boletim.";
+                    mensagemElemento.style.display = "block";
+                    return;
+                }
+
+                // Atualiza o header com o semestre e curso, se desejar
+                const headerBoletim = document.querySelector('.header-boletim');
+                if (headerBoletim && boletimData.semestre && boletimData.curso) {
+                    // Para não duplicar o "Boletim" já existente no HTML
+                    const titleNode = headerBoletim.childNodes[0]; 
+                    if (titleNode && titleNode.nodeType === Node.TEXT_NODE) {
+                         titleNode.textContent = `Boletim - ${boletimData.semestre}º Semestre (${boletimData.curso}) `;
+                    }
+                }
+                
+                // Limpa seções de matéria existentes ou as prepara
+                // Se for gerar dinamicamente (melhor), limpe o container:
+                // const container = document.querySelector('.container-boletim');
+                // container.innerHTML = ''; // Limpa para adicionar dinamicamente
+
+                // Preenchendo o HTML fixo (limitado ao número de seções no HTML)
+                boletimData.materias.forEach((materia, index) => {
+                    const sectionId = `materia-${index + 1}`;
+                    const section = document.getElementById(sectionId);
+
+                    if (section) {
+                        section.style.display = 'block'; // Torna a seção visível
+                        section.querySelector(".titulo-materia").textContent = materia.nomeMateria;
+                        // O semestre vem do objeto boletimData, não de cada matéria individualmente
+                        section.querySelector("h3").textContent = `${boletimData.semestre}º Semestre`;
+                        section.querySelector(".nota-valor").textContent = materia.nota !== null ? materia.nota : "--";
+                    }
                 });
+
+                // Se houver mais seções no HTML do que matérias, esconda as extras
+                const totalMateriasNoHtml = 3; // Ou conte quantas seções .materia existem
+                for (let i = boletimData.materias.length + 1; i <= totalMateriasNoHtml; i++) {
+                    const sectionExtra = document.getElementById(`materia-${i}`);
+                    if (sectionExtra) {
+                        sectionExtra.style.display = 'none';
+                    }
+                }
+
+            })
+            .catch(error => {
+                console.error("Erro ao carregar boletim:", error);
+                mensagemElemento.textContent = `Erro ao carregar boletim: ${error.message}`;
+                mensagemElemento.style.display = "block";
+            });
         });
     </script>
 </body>
-
 </html>
