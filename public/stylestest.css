@@ -523,68 +523,119 @@ button.sp {
     background-color: #333;
 }
 
+/* --------------------------------------------------------------------frequencia.html--------------------------------------------------------*/
+.bodyfrequencia{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #1e1e1e, #4d4d4d);
+    color: #f5f5f5;
+    min-height: 100vh;    
+}
+
 /* --------------------------------------------------------------------boletim.html--------------------------------------------------------*/
+
+.clasebody {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #1e1e1e, #4d4d4d);
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
 .header-boletim {
-    font-family: "Chakra Petch", sans-serif;
-    background: #333;
-    color: white;
     text-align: center;
     padding: 20px;
     font-size: 24px;
-    display: block;
+    position: relative;
+    background-color: transparent;
+}
+
+.sair {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.sair:hover {
+    background-color: #424242;
+    transition: 0.3s;
+}
+
+.container-boletim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #444;
+    margin: 30px auto;
+    padding: 30px 20px;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(206, 206, 206, 0.4);
 }
 
 section.materia {
+    color: #fff;
+    background-color: #2f2f2f;
+    border-radius: 15px;
     padding: 20px;
-    margin: 20px 200px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px black;
+    width: 100%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
 }
 
 .semestre {
     background-color: #9c9c9c;
     border-radius: 5px;
-    padding: 5px 10px;
-    margin: 10px 40px;
-}
-
-.sair {
-    display: flex;
-    text-decoration: none;
-    color: white;
-    top: 0;
-    position: absolute;
-    padding: 20px 20px 20px 20px;
-}
-
-.sair:hover {
-    background-color: #424242;
-    transition: 0.5s;
-    border-radius: 5px;
+    padding: 10px;
+    margin-top: 15px;
+    width: fit-content;
+    color: #000;
 }
 
 /* -----------------------------------------------------------------grade.html--------------------------------------------------------------------*/
+.bodygrade{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #1e1e1e, #4d4d4d);
+    color: #f5f5f5;
+    min-height: 100vh;    
+}
+
 table {
     border-collapse: collapse;
     width: 80%;
-    text-align: center;
     margin: 100px auto;
-    box-shadow: 2px 2px 8px rgb(107, 107, 107);
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-th,
-td {
-    border: 1px solid #999;
-    padding: 8px;
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #444;
 }
 
 thead {
-    background-color: #f2f2f2;
+    background-color: #3c3c3c;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #3a3a3a;
+}
+
+tbody tr:hover {
+    background-color: #505050;
+    transition: background-color 0.3s ease;
 }
 
 /* ---------------------------------------------elemetos/materias.html---------------------------------------------------------------------------------*/

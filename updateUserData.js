@@ -6,10 +6,10 @@ const connectDB = require('./database/database');
 
 //------------- Função para atualizar Dados pelo email --------------
 
-const userEmailToUpdate = 'eduardo@gmail.com';
+const userEmailToUpdate = 'carolinelopes@gmail.com';
 //------------- Inserir os dados aqui ----------------------//
 const newUserData = { 
-    telefone: "(61)0000-0000",
+    semestre: 5,
 
 
 
