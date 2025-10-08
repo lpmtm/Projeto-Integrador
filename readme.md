@@ -47,8 +47,3 @@ Amanda Ferreira Dahm
 Caroline Lopes Martins  
 Eduardo Lima dos Santos  
 Ian Melo Gonçalves  
-Miguel Ferreira Pedroso  
-Paula Ribeiro Moreira de Souza  
-
-## Link pelo Vercel:
-https://modelo-aqwc.vercel.app/
